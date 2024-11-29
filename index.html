@@ -14,14 +14,14 @@
   </div>
   <script>
     const firebaseConfig = {
-      apiKey: "your-api-key",
-      authDomain: "your-app.firebaseapp.com",
-      databaseURL: "https://your-app.firebaseio.com",
-      projectId: "your-project-id",
-      storageBucket: "your-project.appspot.com",
-      messagingSenderId: "your-sender-id",
-      appId: "your-app-id"
-    };
+		apiKey: "AIzaSyCAbzZAJfKM3tXHAp-K7xUsHtuN1ZGleFY",
+		authDomain: "kira-game.firebaseapp.com",
+		databaseURL: "https://kira-game-default-rtdb.firebaseio.com",
+		projectId: "kira-game",
+		storageBucket: "kira-game.firebasestorage.app",
+		messagingSenderId: "778778364856",
+		appId: "1:778778364856:web:f3bcbd776059c589f7dd4d"
+}	;
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
     db.ref('game/kira').on('value', (snapshot) => {

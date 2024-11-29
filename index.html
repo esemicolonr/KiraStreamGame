@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kira Game</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js"></script>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen">
+  <div id="status" class="text-center text-2xl font-bold">
+    Loading...
+  </div>
+  <script>
+    const firebaseConfig = {
+      apiKey: "your-api-key",
+      authDomain: "your-app.firebaseapp.com",
+      databaseURL: "https://your-app.firebaseio.com",
+      projectId: "your-project-id",
+      storageBucket: "your-project.appspot.com",
+      messagingSenderId: "your-sender-id",
+      appId: "your-app-id"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    db.ref('game/kira').on('value', (snapshot) => {
+      const data = snapshot.val();
+      if (data.username && data.keyword) {
+        document.getElementById('status').innerText = 
+          `You are Kira!\nKeyword: ${data.keyword}`;
+      } else {
+        document.getElementById('status').innerText = "Not Kira this round.";
+      }
+    });
+  </script>
+</body>
+</html>
